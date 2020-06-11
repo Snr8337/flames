@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string a,b;
+    getline(cin,a);
+    getline(cin,b);
+    int n= a.size();
+    int m=b.size();
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        
+        {
+            if(a[i]==b[j])
+            {
+                a[i]='*';
+                b[j]='*';
+            }
+        }
+    }
+    int c=0;
+   for(int i=0;i<n;i++)
+   {
+       if(a[i]!='*')
+       {
+           c++;
+       }
+   }
+   for(int i=0;i<m;i++)
+   {
+       if(b[i]!='*')
+       {
+           c++;
+       }
+   }
+   cout<<c;
+   }
