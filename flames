@@ -8,10 +8,9 @@ int main()
     getline(cin,b);
     int n=a.size();
     int m=b.size();
-    //to find unmatched character
     for(int i=0;i<n;i++)
     {
-        for(int j=0;j<m;j++)
+        for(int j=0;j<n;j++)
         {
             if(a[i]==b[j])
             {
@@ -20,60 +19,54 @@ int main()
             }
         }
     }
-    //cout<<a;to fing number of unmathed charcter in booth stringd
-    int count=0;
-    for(int i=0;i<n;i++)
-    {
-        if(a[i]!='*')
-        {
-            count++;
-        }
-    }
-     for(int i=0;i<m;i++)
-    {
-        if(b[i]!='*')
-        {
-            count++;
-        }
-    }
-   cout<<count<<endl;
-   string f="flames";
-   int f_n=f.size();
-  // cout<<f_n;
-   int idx=0,f_c=0;
-   while(f_n>0)
+   int count=0;
+   for(int i=0;i<n;i++)
    {
-       f_c++;
-       if(idx==f_n-1)
+       if(a[i]!='*')
        {
-           idx=0;
-       }
-       else
-       {
-           idx++;
-       }
-       if(f_c==count)
-       {
-           int j=0;
-           if(idx==0)
-           {
-               j=0;
-           }
-           else
-           {
-               j=idx--;
-           }
-           if(j<f_n-1)
-           {
-               f[j]='*';
-               j++;
-           }
-           f_c=0;
-           f_n--;
+           count++;
        }
    }
-  
-   cout<<f;
-   
+   for(int i=0;i<m;i++)
+   {
+       if(b[i]!='*')
+       {
+           count++;
+       }
+   }
+   //cout<<count;
+   string f="flames";
+   int k=0;
+   for(int i=1;i<=5;i++)
+   {
+       for(int j=1;j<=count;j++)
+       {
+           if(f[k]=='*')
+           {
+               j--;
+           }
+           if(j==count)
+           {
+               f[k]='*';
+           }
+           k=(k+1)%6;
+       }
+   }
+  char x;
+  for(int i=0;i<6;i++)
+  {
+      if(f[i]!='*')
+      {
+          x=f[i];
+      }
+  }
+  cout<<x<<endl;
+  switch(x)
+  {
+      case 'f':cout<<"friend";
+      break;
+      case 'e':cout<<"love";
+      break;
+      
+  }
 }
-   
