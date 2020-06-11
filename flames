@@ -6,12 +6,12 @@ int main()
     string a,b;
     getline(cin,a);
     getline(cin,b);
-    int n= a.size();
+    int n=a.size();
     int m=b.size();
+    //to find unmatched character
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
-        
         {
             if(a[i]==b[j])
             {
@@ -20,20 +20,60 @@ int main()
             }
         }
     }
-    int c=0;
-   for(int i=0;i<n;i++)
+    //cout<<a;to fing number of unmathed charcter in booth stringd
+    int count=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]!='*')
+        {
+            count++;
+        }
+    }
+     for(int i=0;i<m;i++)
+    {
+        if(b[i]!='*')
+        {
+            count++;
+        }
+    }
+   cout<<count<<endl;
+   string f="flames";
+   int f_n=f.size();
+  // cout<<f_n;
+   int idx=0,f_c=0;
+   while(f_n>0)
    {
-       if(a[i]!='*')
+       f_c++;
+       if(idx==f_n-1)
        {
-           c++;
+           idx=0;
+       }
+       else
+       {
+           idx++;
+       }
+       if(f_c==count)
+       {
+           int j=0;
+           if(idx==0)
+           {
+               j=0;
+           }
+           else
+           {
+               j=idx--;
+           }
+           if(j<f_n-1)
+           {
+               f[j]='*';
+               j++;
+           }
+           f_c=0;
+           f_n--;
        }
    }
-   for(int i=0;i<m;i++)
-   {
-       if(b[i]!='*')
-       {
-           c++;
-       }
-   }
-   cout<<c;
-   }
+  
+   cout<<f;
+   
+}
+   
